@@ -36,47 +36,6 @@ func randInt(min, max int) int {
 	return rand.Intn(max-min) + min
 }
 
-// здесь обратите внимание на имена параметров
-func startTraining(name, class string) string {
-	if class == "warrior" {
-		fmt.Printf("%s, ты Воитель - отличный боец ближнего боя.\n", name)
-	}
-
-	if class == "mage" {
-		fmt.Printf("%s, ты Маг - превосходный укротитель стихий.\n", name)
-	}
-
-	if class == "healer" {
-		fmt.Printf("%s, ты Лекарь - чародей, способный исцелять раны.\n", name)
-	}
-
-	fmt.Println("Потренируйся управлять своими навыками.")
-	fmt.Println("Введи одну из команд: attack — чтобы атаковать противника,")
-	fmt.Println("defence — чтобы блокировать атаку противника,")
-	fmt.Println("special — чтобы использовать свою суперсилу.")
-	fmt.Println("Если не хочешь тренироваться, введи команду skip.")
-
-	var cmd string
-	for cmd != "skip" {
-		fmt.Print("Введи команду: ")
-		fmt.Scanf("%s\n", &cmd)
-
-		if cmd == "attack" {
-			fmt.Println(attack(name, class))
-		}
-
-		if cmd == "defence" {
-			fmt.Println(defence(name, class))
-		}
-
-		if cmd == "special" {
-			fmt.Println(special(name, class))
-		}
-	}
-
-	return "тренировка окончена"
-}
-
 func attack(charName, charClass string) string {
 	if charClass == "warrior" {
 		return fmt.Sprintf("%s нанес урон противнику равный %d.", charName, 5+randInt(3, 5))
@@ -118,6 +77,47 @@ func special(charName, charClass string) string {
 		return fmt.Sprintf("%s применил специальное умение `Защита %d`", charName, 10+30)
 	}
 	return "неизвестный класс персонажа"
+}
+
+// здесь обратите внимание на имена параметров
+func startTraining(name, class string) string {
+	if class == "warrior" {
+		fmt.Printf("%s, ты Воитель - отличный боец ближнего боя.\n", name)
+	}
+
+	if class == "mage" {
+		fmt.Printf("%s, ты Маг - превосходный укротитель стихий.\n", name)
+	}
+
+	if class == "healer" {
+		fmt.Printf("%s, ты Лекарь - чародей, способный исцелять раны.\n", name)
+	}
+
+	fmt.Println("Потренируйся управлять своими навыками.")
+	fmt.Println("Введи одну из команд: attack — чтобы атаковать противника,")
+	fmt.Println("defence — чтобы блокировать атаку противника,")
+	fmt.Println("special — чтобы использовать свою суперсилу.")
+	fmt.Println("Если не хочешь тренироваться, введи команду skip.")
+
+	var cmd string
+	for cmd != "skip" {
+		fmt.Print("Введи команду: ")
+		fmt.Scanf("%s\n", &cmd)
+
+		if cmd == "attack" {
+			fmt.Println(attack(name, class))
+		}
+
+		if cmd == "defence" {
+			fmt.Println(defence(name, class))
+		}
+
+		if cmd == "special" {
+			fmt.Println(special(name, class))
+		}
+	}
+
+	return "тренировка окончена"
 }
 
 // обратите внимание на имена переменных
